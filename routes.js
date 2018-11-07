@@ -7,7 +7,7 @@ var router = express.Router();
 // User side pages -----
 
 router.get('/', function (req, res) {
-    res.render('index');
+    res.render('selectseat');
 });
 
 router.get('/contact', function (req, res) {
@@ -71,7 +71,7 @@ router.post('/user/login', user_controller.user_login_post);
 // DEV Routes -----
 
 router.get('/selectseat', function (req, res) {
-    res.render('selectseat');
+    res.redirect('/');
 });
 
 router.get('/genmap', function (req, res) {
