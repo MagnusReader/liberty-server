@@ -65,6 +65,7 @@ var user_controller = require('./controllers/userController');
 
 // POST request for creating user.
 router.post('/user/create', user_controller.user_create_post);
+router.post('/user/login', user_controller.user_login_post);
 
 
 // DEV Routes -----
@@ -101,6 +102,9 @@ router.get('/cancelseats',function(req,res){
 
 router.get('/register',function(req,res){
     res.render('register');
+});
+router.get('/login',function(req,res){
+    res.render('login');
 });
 
 
