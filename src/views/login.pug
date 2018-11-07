@@ -5,22 +5,13 @@ block styles
 
 block content
     //- Page content
-    h2.header.blue-text.center.light.shadow-text.grey-shadow Register
+    h2.header.blue-text.center.light.shadow-text.grey-shadow Login
     
     .container
         .row
             .card.col.s10.push-s1
-                
-                form#registerform.padded-compact.container(action="/user/create", method="post")
-                    
+                form#loginform.padded-compact.container(action="/user/login", method="post")
                     .row
-                        
-
-                    
-                        .col.s12.m3.push-m3.input-field
-                            input#name(type="text", name="name")
-                            label(for="name") Name
-
                         .col.s12.m3.push-m3.input-field
                             input#username(type="text", name="username")
                             label(for="username") Username                        
@@ -31,13 +22,17 @@ block content
 
                     .row
                         .col.s12.m6
-                            a.btn.blue.accent-4.center( href="javascript:$('#registerform').submit()", style="width: 100%") Register
+                            a.btn.blue.accent-4.center( href="javascript:$('#loginform').submit()", style="width: 100%") Login
                     
                     .row
+
                         .col.s12
-                                a.btn-flat.blue-text.text-accent-4.waves-effect.waves-purple( href="/login") 
-                                    i.material-icons.left arrow_back
-                                    | Login
+                            a.btn-flat.left.blue-text.text-accent-4.waves-effect.waves-purple( href="/forgot") Forgot password?
+                       
+                            a.btn-flat.right.blue-text.text-accent-4.waves-effect.waves-purple( href="/register") Register
+
+                        
+
 
 
 
