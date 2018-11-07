@@ -1,0 +1,54 @@
+//- .navbar-fixed
+nav.blue.lighten-1
+    .nav-wrapper.container
+        a.brand-logo(href="#!") Nuke
+        a.sidenav-trigger(href="#", data-target="mobile-demo")
+            i.material-icons menu
+        ul.right.hide-on-med-and-down
+            li
+                a(href="/") Home
+            li
+                a(href="/selectseat") Select Seats
+            li
+                a(href="/genmap") Generate Map Config
+#mobile-demo.sidenav
+    section
+        .user-view
+            .background
+                img(src="/images/office.jpg")
+            a(href="#user")
+                img.circle(src="/images/yuna.jpg")
+            a(href="#name")
+                span.white-text.name John Doe
+            a(href="#email")
+                span.white-text.email jdandturk@gmail.com
+
+    ul
+        li
+            a(href="/")
+                i.material-icons(style='color:#42a5f5') home
+                | Home
+        li
+            a(href="/selectseat")
+                i.material-icons(style='color:#42a5f5') event_seat
+                | Select Seats
+        li
+            a(href="/genmap")
+                i.material-icons(style='color:#42a5f5') add_location
+                | Generate Map Config
+        li  
+            a(href="/selectpeople")
+                i.material-icons(style='color:#42a5f5') person
+                |  Select people
+        li  
+            a(href="/finecheck")
+                i.material-icons(style='color:#42a5f5') money
+                | Fines
+        li  
+            a(href="/cancelseats")
+                i.material-icons(style='color:#42a5f5') cancel
+                | Cancel Seats
+        li  
+            a(href="/logout")
+                i.material-icons(style='color:#42a5f5') lock
+                | Logout

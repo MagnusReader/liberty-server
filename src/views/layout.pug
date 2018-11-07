@@ -1,0 +1,17 @@
+html
+    head
+        title Nuke
+        include styles.pug
+        
+        block styles
+        
+    body.index.is-preload
+        include navbar.pug
+
+        main    
+            block content
+        
+        include footer.pug
+        include scripts.pug
+        
+        block scripts

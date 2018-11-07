@@ -1,0 +1,35 @@
+extends layout.pug
+
+block styles
+    //- Custom styles
+
+block content
+    //- Page content
+    h2.header.blue-text.center.light.shadow-text.grey-shadow Register
+    
+    .container
+        .row
+            .card.col.s10.push-s1
+                form#registerform.padded-compact.container(action="/registeruser", method="post")
+                    .row
+                        .col.s12.m3.push-m3.input-field
+                            input#name(type="text", name="name")
+                            label(for="name") Name
+
+                        .col.s12.m3.push-m3.input-field
+                            input#username(type="text", name="username")
+                            label(for="username") Username                        
+                    
+                        .col.s12.m3.push-m3.input-field
+                            input#password(type="password", name="password")
+                            label(for="password") Password
+
+                    .row
+                        .col.s12.m6
+                            a.btn.blue.accent-4.center( href="javascript:$('#registerform').submit()", style="width: 100%") Register
+
+
+
+                 
+block scripts
+    //- custom scripts

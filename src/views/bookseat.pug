@@ -1,0 +1,32 @@
+
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        meta(http-equiv="X-UA-Compatible", content="ie=edge")
+        title Document
+        link(rel="stylesheet", href="/css/materialize.min.css")
+        script(src="/js/materialize.min.js")
+
+    body
+
+        .container
+            .row
+                .col.s12
+                    .card.small
+            .row
+                .col.s12
+                    .card.small
+            .row
+                .col.s4
+                    input.timepicker(type="text", name="")
+                .col.s4
+                    input.timepicker(type="text", name="")                    
+                .col.s4
+                    input(type="number", name="")
+            .row
+                .col.s12
+                    a.btn.blue.center(href="#", style="width: 100%") Book
+            
+
+        script(src="/js/init/bookseat.js")

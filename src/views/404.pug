@@ -1,0 +1,22 @@
+extends layout.pug
+
+block styles
+    //- Custom styles
+
+block content
+
+    section#banner
+        .inner
+            header
+
+                img(src="/images/logo-small.png", alt="logo", style="max-height: 80px;")
+
+                h2#banner-header You seem to be lost
+                p#banner-p Error 404: Resource not found.
+            footer
+                ul.buttons.stacked
+                    li
+                        a.button.primary.scrolly(href="/", style="background: #ff8f00; border-color: #ff8f00") Go to homepage
+
+block scripts
+    //- custom scripts

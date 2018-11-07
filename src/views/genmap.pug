@@ -1,0 +1,29 @@
+extends layout.pug
+
+block styles
+    //- Custom styles
+    link(rel="stylesheet", href="/css/components/genmap.css")
+
+block content
+    //- Page content
+
+    section
+        .container
+            .row
+                .col.s8.push-s2
+                    .card.medium.padded-compact.center
+                        form#genmap.overflow-scroll(action="#")
+            
+            
+            .row
+                .col.s6.input-field
+                    input#room(type="text", name="room")
+                    label(for="room") Room
+                .col.s12.center
+                    a.btn.blue.center(href="javascript:generateMap()") Generate
+                    a.btn.green.center(href="javascript:printMap()") Print
+
+                 
+block scripts
+    //- custom scripts
+    script(src="/js/components/genmap.js")
