@@ -9,8 +9,6 @@ block content
 
     section
         .container
-            
-            
             .row
                 .col.s4.m3.l2.input-field
                     input.timepicker#timefrom(type="text", name="timefrom")
@@ -24,6 +22,7 @@ block content
                 //- .col.s6.m3.l2.input-field
                     input#people(type="number", name="people", min="1", max="99", value="1")
                     label(for="people") Persons
+            .row
                 .col.s12.m6
                     a.btn.teal.accent-4.center(href="javascript:searchSeats()", style="width: 100%") Search    
 

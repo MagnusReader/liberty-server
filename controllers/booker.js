@@ -63,10 +63,10 @@ exports.searchSeats = function (req, res) {
 
     Room.findOne({
         name: req.query.room
-    }).populate('seats').exec(function (err, data) {
+    }).populate("seats").exec(function (err, data) {
         if (err) {
-            console.error(err);
             res.send(err);
+            throw err;
         }
         // console.log(data.seats);
 
@@ -78,18 +78,27 @@ exports.searchSeats = function (req, res) {
             Booking.find({
                 seat: seats[seat]._id,
 
-                time: {
-                    from: {
-                        $gt: req.query.from
-                    },
-                    to: {
-                        $lt: req.query.to
+                $or: [{
+                    time: {
+                        from: {
+                            $gt: req.query.from
+                        }
                     }
-                }
+                }, {
+                    time: {
+
+                        to: {
+                            $lt: req.query.to
+                        }
+                    }
+                }]
+
             }).exec(function (err, data) {
                 if (err) {
-                    console.error(err);
+                    res.send(err);
+                    throw err;
                 }
+                
                 if (data[0]) {
                     seats[seat].status = false;
                 }

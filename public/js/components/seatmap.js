@@ -73,8 +73,8 @@ function getNeeds() {
     var needs = {
         room: localStorage.getItem("room"),
         from: (new Date(moment($("#date").val() + " " + timefromInstance.time).format())).getTime(),
-        to: (new Date(moment($("#date").val() + " " + timetoInstance.time).format())).getTime()
-        // persons: $("#people").val()
+        to: (new Date(moment($("#date").val() + " " + timetoInstance.time).format())).getTime(),
+        date: $("#date").val()// persons: $("#people").val()
     };
     
     console.log(needs);
