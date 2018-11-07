@@ -93,7 +93,7 @@ exports.searchSeats = function (req, res) {
                 if (data[0]) {
                     seats[seat].status = false;
                 }
-            })
+            });
         }
 
 
@@ -110,9 +110,9 @@ exports.searchSeats = function (req, res) {
 
 
 
-}
+};
 
 
 exports.createBooking = function () {
 
-}
+};
