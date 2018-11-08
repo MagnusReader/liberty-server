@@ -1,11 +1,11 @@
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 
 var BookingSchema = new Schema({
     seat: {
         type: Schema.ObjectId,
-        ref: 'Seat'
+        ref: "Seat"
     },
 
     time: {
@@ -25,14 +25,14 @@ var BookingSchema = new Schema({
 
     user: {
         type: Schema.ObjectId,
-        ref: 'User'
+        ref: "User"
     },
     room: {
         type: Schema.ObjectId,
-        ref: 'Room'
+        ref: "Room"
     }
 });
 
 
 //Export model
-module.exports = mongoose.model('Booking', BookingSchema);
+module.exports = mongoose.model("Booking", BookingSchema);
