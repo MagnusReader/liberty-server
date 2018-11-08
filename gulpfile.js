@@ -8,7 +8,7 @@ gulp.task("clean", function () {
 });
 
 gulp.task("html", function () {
-    return gulp.src("src/views/{index,404,selectseat,finecheck,genmap,register,selectpeople}.pug")
+    return gulp.src("src/views/{index,404,selectseat,genmap,register,selectpeople}.pug")
         .pipe(pug())
         .pipe(gulp.dest("build/www"));
 });
