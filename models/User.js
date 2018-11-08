@@ -1,4 +1,4 @@
-var mongoose = require('mongoose');
+var mongoose = require("mongoose");
 
 var Schema = mongoose.Schema;
 
@@ -7,19 +7,19 @@ var UserSchema = new Schema({
         type: String,
         //required: true,
         max: 100,
-        default: 'User'
+        default: "User"
     },
     password: {
         type: String,
         max: 1000,
-        default: '0123456789'
+        default: "0123456789"
     },
     username: {
         type: String,
         //raequired: true,
         max: 20,
         default: "2018ACSC0123456"
-    },
+    }
     // status: {
     //     type: Boolean,
     //     //required: true,
@@ -32,15 +32,11 @@ var UserSchema = new Schema({
     //     contentType: {
     //         type: String,
     //         max: 15,
-    //         default: 'png'
+    //         default: "png"
     //     }
     // }
-    bookings: [{
-        type: Schema.ObjectId,
-        ref: 'Booking'
-    }]
 });
 
 
 //Export model
-module.exports = mongoose.model('User', UserSchema);
+module.exports = mongoose.model("User", UserSchema);
