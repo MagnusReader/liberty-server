@@ -48,3 +48,23 @@ exports.user_login_post = function (req, res) {
 
 
 };
+
+
+
+exports.user_search_get = function (req, res) {
+
+    User.find({
+        name: {
+            $regex: req.query.user,
+            $options: "i"
+        }
+    }).exec(function (err, data) {
+        if (err) {
+            res.send(false);
+            throw err;
+        }
+        if (data) {
+            res.send(data);
+        }
+    });
+};
