@@ -8,10 +8,14 @@ var BookingSchema = new Schema({
         ref: "Seat"
     },
 
+    date: {
+        type: Date
+    },
+
     time: {
         from: {
             type: Number
-            
+
         },
         to: {
             type: Number
@@ -20,13 +24,15 @@ var BookingSchema = new Schema({
     },
     status: {
         type: Boolean,
-        default: true
+        default: false,
+        required: true
     },
 
     user: {
         type: Schema.ObjectId,
         ref: "User"
     },
+
     room: {
         type: Schema.ObjectId,
         ref: "Room"
