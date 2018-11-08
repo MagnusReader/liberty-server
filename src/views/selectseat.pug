@@ -24,15 +24,20 @@ block content
                     label(for="people") Persons
             .row
                 .col.s12.m6
-                    a.btn.teal.accent-4.center(href="javascript:searchSeats()", style="width: 100%") Search    
+                    a.btn.blue.accent-4.center(href="javascript:searchSeats()", style="width: 100%") Search    
 
             .row
                 .col.s12
                     #seatmapcontainer.card.padded-compact.center
                         form#seatmap.overflow-scroll
+
+            .row
+                .col.s12
+                    .chips.chips-autocomplete#users
+                        input.custom-class
             .row
                 .col.s12.m6
-                    a.btn.teal.accent-4.center(disabled href="javascript:bookSeats()", style="width: 100%") Book
+                    a.btn.blue.accent-4.center.disabled#bookbtn( href="javascript:bookSeats()", style="width: 100%") Book
 
                  
 block scripts

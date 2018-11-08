@@ -1,7 +1,7 @@
-var User = require('../models/User');
-var Room = require('../models/Room');
-var Seat = require('../models/Seat');
-var Booking = require('../models/Booking');
+var User = require("../models/User");
+var Room = require("../models/Room");
+var Seat = require("../models/Seat");
+var Booking = require("../models/Booking");
 
 
 exports.createSeatsGet = function (req, res) {
@@ -29,8 +29,8 @@ exports.createSeatsGet = function (req, res) {
 
     newroom.save(function (err) {
         if (err) {
-            console.error(err);
             res.send(false);
+            throw err;
         } else {
             res.send(true);
         }
@@ -48,8 +48,8 @@ exports.createRoomGet = function (req, res) {
 
     newroom.save(function (err) {
         if (err) {
-            console.error(err);
             res.send(false);
+            throw err;
         } else {
             res.send(true);
         }
@@ -64,17 +64,21 @@ exports.searchSeats = function (req, res) {
     Room.findOne({
         name: req.query.room
     }).populate("seats").exec(function (err, data) {
+        
+        data = data.toObject();
+        
         if (err) {
             res.send(err);
             throw err;
         }
-        // console.log(data.seats);
-
-
 
         var seats = data.seats;
 
-        for (var seat in seats) {
+        for (var seat in data.seats) {
+            // seats[seat] = data.seats[seat].toObject();
+
+            seats[seat].status = true;
+
             Booking.find({
                 seat: seats[seat]._id,
 
@@ -98,30 +102,31 @@ exports.searchSeats = function (req, res) {
                     res.send(err);
                     throw err;
                 }
-                
+
                 if (data[0]) {
                     seats[seat].status = false;
                 }
             });
         }
 
-
-
-
-
-
-
         res.send(seats);
-
-
     });
-
-
-
-
 };
 
 
-exports.createBooking = function () {
+exports.createBooking = function (req, res) {
+    var newbooking = new Booking({
+        seat: req.body.seat,
+    
+        time: {
+            from: req.body.from,
+            to: req.body.to
+    
+        },
+        
+        user: req.body.user,
+        room: req.body.room
+    });
 
+    newbooking.save();
 };
