@@ -81,6 +81,7 @@ router.get('/genmap', function (req, res) {
 var booker = require('./controllers/booker');
 
 router.get('/create/seats', booker.createSeatsGet);
+router.post('/book/seats', booker.createBookingPost);
 router.get('/create/room', booker.createRoomGet);
 router.get('/search/seats', booker.searchSeats);
 
