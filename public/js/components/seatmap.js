@@ -68,16 +68,19 @@ function searchSeats() {
 
 function bookSeats() {
     var booking = getNeeds();
-
-    booking.seats = getSelectedSeats();
+    booking["seats"] = getSelectedSeats();
+    booking["users"] = userchipInstance.chipsData;
 
     //localStorage.setItem("booking", JSON.stringify(booking));
+    if (booking.seats.length == booking.users.length) {
+        console.log(booking);
 
-    console.log(booking);
-
-    // $.get("/book/seats", booking, function (data) {
-    //     console.log(data);
-    // });
+        $.post("/book/seats", {bookingdata:JSON.stringify(booking)}, function (data) {
+            console.log(data);
+        });
+    } else {
+        alert("Number of seats and number of persons should be same.");
+    }
 
 }
 
