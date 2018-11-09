@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/nuke.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!-- upar wala nav bar -->
+
+    <!-- <div class="navbar-fixed"> -->
+    <nav>
+        <div class="nav-wrapper">
+            <ul>
+                <!-- <li><a href="#!"><i class="material-icons">menu</i></a></li> -->
+                <li><a class="title" href="admindashboard.html">Dashboard</a></li>
+            </ul>
+            <ul class="right">
+                <li><a href="#!"><i class="material-icons">apps</i></a></li>
+                <li><a href="#!"><i class="material-icons">settings</i></a></li>
+                <li><a href="#!"><i class="material-icons">help</i></a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- upar wala navbar end here -->
+
+
+    <!-- sidenav start here -->
+
+
+    <ul class="sidenav sidenav-fixed  z-depth-0">
+        <li class="active"><a href="admindashboard.html"><i class="material-icons">dashboard</i>Dashboard</a></li>   
+        <li><a href="feedback.html"><i class="material-icons">feedback</i>View Feedback</a></li>
+        <li><a href="uploadlayout.html"><i class="material-icons">file_upload</i>Upload seat layout</a></li>
+        <li><a href="#"><i class="material-icons">accessible</i>View Bookings</a></li>
+        <li><a href="#"><i class="material-icons">person</i>Cancle booked seats</a></li>
+        <!-- <li><a href="#"><i class="material-icons">update</i>Update seat layout</a></li> -->
+        <li><a href="#"><i class="material-icons">attach_money</i>Fines</a></li>
+        <li><a href="attendance.html"><i class="material-icons">assignment</i>Manual Attendance</a></li>
+        <!-- <li><a href="#"><i class="material-icons">block</i>Black list student</a></li> -->
+
+        <li>
+            <div class="divider"></div>
+        </li>
+        <li><a href="#"><i class="material-icons">exit_to_app</i>Log Out</a></li>
+        <li><a href="#"><i class="material-icons">help</i>Help & Feedback</a></li>
+    </ul>
+
+    <!-- sidenav end here -->
+
+    <!-- menu cards -->
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+
+                <div class="col s12 m4 ">
+                    <div class="card blue white-text z-depth-1 hoverable curved ">
+                        <div class="card-content valign-wrapper">
+                            <div class="card-text">
+                                <h6>120</h6>
+                                <p>Seats booked</p>
+                            </div>
+                            <div class="card-icon"><i class="material-icons medium valign">pie_chart</i></div>
+                        </div>
+                        <div class="card-action"><a href="#">View bookings</a></div>
+                    </div>
+                </div>
+
+                <div class="col s12 m4">
+                    <div class="card blue white-text hoverable curved ">
+                        <div class="card-content valign-wrapper">
+                            <div class="card-text">
+                                <h6>0</h6>
+                                <p>booking cancled</p>
+                            </div>
+                            <div class="card-icon"><i class="material-icons medium valign">check_circle</i></div>
+                        </div>
+                        <div class="card-action"><a href="#">Show Cancled</a></div>
+                    </div>
+                </div>
+
+                <div class="col s12 m4 ">
+                    <div class="card blue white-text hoverable curved ">
+                        <div class="card-content valign-wrapper">
+                            <div class="card-text">
+                                <h6>50</h6>
+                                <p>Feedbacks </p>
+                            </div>
+                            <div class="card-icon"><i class="material-icons medium valign">feedback</i></div>
+                        </div>
+                        <div class="card-action"><a href="feedback.html">Show feedback</a></div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card blue white-text hoverable curved">
+                        <div class="card-content valign-wrapper">
+                            <div class="card-text">
+                                <h6>....</h6>
+                                <p>Add Seat layout </p>
+                            </div>
+                            <div class="card-icon"><i class="material-icons medium valign">file_upload</i></div>
+                        </div>
+                        <div class="card-action"><a href="uploadlayout.html">Upoad layout</a></div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card blue white-text hoverable curved">
+                        <div class="card-content valign-wrapper">
+                            <div class="card-text">
+                                <h6>54</h6>
+                                <p>Are present</p>
+                            </div>
+                            <div class="card-icon"><i class="material-icons medium valign">update</i></div>
+                        </div>
+                        <div class="card-action"><a href="attendance.html">Mark Present</a></div>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="card blue white-text hoverable curved">
+                        <div class="card-content valign-wrapper">
+                            <div class="card-text">
+                                <h6>0</h6>
+                                <p>FINES </p>
+                            </div>
+                            <div class="card-icon"><i class="material-icons medium valign">attach_money</i></div>
+                        </div>
+                        <div class="card-action"><a href="#">Open Fines</a></div>
+                    </div>
+                </div>
+                <!-- <div class="col s12 m4">
+                    <div class="card blue white-text hoverable curved">
+                        <div class="card-content valign-wrapper">
+                            <div class="card-text">
+                                <h6>0 student</h6>
+                                <p>Blacklist </p>
+                            </div>
+                            <div class="card-icon"><i class="material-icons medium valign">block</i></div>
+                        </div>
+                        <div class="card-action"><a href="#">Show</a></div>
+                    </div>
+                </div> -->
+
+
+
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            // $('.collapsible').collapsible(); 
+            M.AutoInit();
+            $(".sidenav").sidenav();
+        });
+    </script>
+</body>
+
+</html>

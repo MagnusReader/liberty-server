@@ -1,0 +1,136 @@
+.curved {
+  border-radius: 16px;
+  overflow: hidden;
+}
+.material-icons{
+  font-size: 45px;
+} 
+.select-wrapper input.select-dropdownn{
+  font-size: 22px;
+}
+
+body {
+  background-color: #f6f6f6;
+  font-size: 13px;
+  letter-spacing: 0.02rem;
+}
+
+h6 {
+  font-size: 1.5rem;
+  margin-top: 0;
+}
+
+
+.card-panel {
+  box-shadow: 0 1px 1px 0 rgba(60, 64, 67, 0.08), 0 1px 3px 1px rgba(60, 64, 67, 0.16);
+}
+
+.container-fluid {
+  padding: 1rem 1.5rem;
+  max-width: 1000px;
+}
+
+.row {
+  margin: 0 -0.75rem;
+}
+
+@media only screen and (min-width: 993px) {
+  .main {
+    padding-left: 250px;
+  }
+}
+/* nav */
+nav {
+  background-color: #202124;
+  box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+nav ul a {
+  padding: 0 12px;
+}
+nav ul a img {
+  line-height: 56px;
+  vertical-align: middle;
+}
+
+nav,
+nav .nav-wrapper i,
+.navbar-fixed {
+  height: 56px;
+  line-height: 56px;
+}
+
+.nav-wrapper ul a:hover {
+  background-color: transparent;
+}
+.nav-wrapper li:first-child a {
+  padding-left: 24px;
+}
+.nav-wrapper .title {
+  font-size: 1.4rem;
+}
+
+/* sidenav */
+.sidenav .divider {
+  margin: 8px 0;
+}
+.sidenav .active {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+.sidenav .active a {
+  color: #212121;
+  font-weight: 500;
+}
+.sidenav .subheader {
+  line-height: 24px;
+  height: 32px;
+  margin: 0;
+  padding: 4px 16px;
+  color: #616161;
+  font-weight: normal;
+  font-size: 13px;
+}
+
+@media only screen and (min-width: 993px) {
+  .sidenav {
+    width: 250px;
+    top: 70px;
+    padding: 12px 8px !important;
+    height: 80%;
+  }
+  .sidenav li > a,
+  .sidenav li > a > i.material-icons {
+    height: 40px;
+    line-height: 40px;
+  }
+  .sidenav li > a > i.material-icons {
+    margin-right: 24px;
+  }
+  .sidenav li > a {
+    padding: 0 16px;
+    font-weight: normal;
+    font-size: 13px;
+    color: #616161;
+  }
+  .sidenav li > a:hover {
+    border-radius: 2px;
+  }
+}
+/* cards */
+.card .card-action {
+  border-top: none;
+}
+.card .card-action a {
+  color: #fff !important;
+}
+.card .card-text {
+  width: calc(100% - 60px);
+}
+.card .card-icon i {
+  width: 100%;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.25);
+}
+
+#meo{
+  width: 900px;
+}
