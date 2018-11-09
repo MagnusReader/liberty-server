@@ -6,17 +6,21 @@ nav.blue.lighten-1
             i.material-icons menu
         ul.right.hide-on-med-and-down
             li
-                a(href="/") Home
+                a(href="/") Book Seats
             li
-                a(href="/selectseat") Select Seats
+                a(href="/bookroom.html") Book Room
             li
-                a(href="/genmap") Generate Map Config
+                a(href="/bookings.html") Bookings
             li  
-                a(href="/selectpeople")  Select people
+                a(href="/fines.html") Fines
             li  
-                a(href="/finecheck") Fines
+                a(href="/profile.html") Profile
             li  
-                a(href="/cancelseats") Cancel Seats
+                a(href="/psychometric.html") Psychometric Analysis
+            li  
+                a(href="/about.html") About
+            li  
+                a(href="/contact.html") Contact
             li  
                 a(href="javascript:logout()") Logout
 
@@ -28,38 +32,46 @@ nav.blue.lighten-1
         .user-view
             .background
                 img(src="/images/office.jpg")
-            a(href="#user")
+            a(href="/profile.html")
                 img.circle(src="/images/yuna.jpg")
-            a(href="#name")
+            a(href="/profile.html")
                 span.white-text.name John Doe
-            a(href="#email")
+            a(href="/profile.html")
                 span.white-text.email jdandturk@gmail.com
 
     ul
         li
             a(href="/")
-                i.material-icons(style='color:#42a5f5') home
-                | Home
-        li
-            a(href="/selectseat")
                 i.material-icons(style='color:#42a5f5') event_seat
-                | Select Seats
+                | Book Seats
         li
-            a(href="/genmap")
+            a(href="/bookroom.html") 
                 i.material-icons(style='color:#42a5f5') add_location
-                | Generate Map Config
+                | Book Room
+        li
+            a(href="/bookings.html") 
+                i.material-icons(style='color:#42a5f5') add_location
+                | Bookings
         li  
-            a(href="/selectpeople")
-                i.material-icons(style='color:#42a5f5') person
-                |  Select people
-        li  
-            a(href="/finecheck")
+            a(href="/fines.html")
                 i.material-icons(style='color:#42a5f5') money
                 | Fines
         li  
-            a(href="/cancelseats")
-                i.material-icons(style='color:#42a5f5') cancel
-                | Cancel Seats
+            a(href="/profile.html")
+                i.material-icons(style='color:#42a5f5') person
+                |  Profile
+        li  
+            a(href="/psychometric.html")
+                i.material-icons(style='color:#42a5f5') person
+                | Psychometric Analysis
+        li  
+            a(href="/about.html")
+                i.material-icons(style='color:#42a5f5') lock
+                | About
+        li  
+            a(href="/contact.html")
+                i.material-icons(style='color:#42a5f5') lock
+                | Contact
         li  
             a(href="javascript:logout()")
                 i.material-icons(style='color:#42a5f5') lock
