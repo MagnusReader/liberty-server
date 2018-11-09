@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="css/materialize.min.css">
+    <link rel="stylesheet" href="css/nuke.css">
+
+</head>
+
+<body>
+    <div class="container ">
+        <div class="row">
+
+            <div class="input-field col s12">
+                <select>
+                    <option value="" disabled selected>Choose feedback type</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+            </div>
+
+
+            <div class="input-field col s12">
+                <div class="class active">
+                    <label>Problem date</label>
+                    <input id="beginDate" type="date" class="datepicker">
+                </div>
+
+            </div>
+
+
+
+
+            <div class="input-field col s12">
+                <textarea id="description" class="materialize-textarea" length="140"></textarea>
+                <label for="description">Describe the event in detail.</label>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/materialize.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // $('.collapsible').collapsible(); 
+            M.AutoInit();
+        });
+    </script>
+
+</body>
+
+</html>
