@@ -1,6 +1,7 @@
 /* global del */
 var gulp = require("gulp");
 var pug = require("gulp-pug");
+var replace = require("gulp-replace");
 var del = require("del");
 
 gulp.task("clean", function () {
@@ -8,10 +9,21 @@ gulp.task("clean", function () {
 });
 
 gulp.task("html", function () {
-    return gulp.src("src/views/{index,404,selectseat,genmap,register,selectpeople}.pug")
-        .pipe(pug())
+    return gulp.src("src/views/{index,bookroom,bookings,fines,profile,psychometric,genbarcode,books,about,login,feedback}.pug")
+        .pipe(pug({
+            pretty: true
+        }))
+        .pipe(replace(/"\//g, '"'))
         .pipe(gulp.dest("build/www"));
 });
+
+
+
+
+
+
+
+
 
 gulp.task("static", function () {
     return gulp.src("public/**/*")

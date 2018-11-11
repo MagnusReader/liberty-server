@@ -1,6 +1,6 @@
 var async = require("async");
-var Moment = require('moment');
-var MomentRange = require('moment-range');
+var Moment = require("moment");
+var MomentRange = require("moment-range");
 var moment = MomentRange.extendMoment(Moment);
 
 var User = require("../models/User");
@@ -62,103 +62,17 @@ exports.createRoomGet = function (req, res) {
 
 };
 
+exports.deleteAllBookingsGet = function (req, res) {
+    Booking.remove({}, function (err) {
+        if (err) {
+            throw err;
+        }
+        // Success - go to author list
+        res.send(true);
+    });
+};
 
 exports.searchSeats = function (req, res) {
-
-
-    // async.waterfall(
-    //     [
-    //         function (cb) {
-    //             Room.findOne({
-    //                 name: req.query.room
-    //             }).populate("seats").exec(function (err, data) {
-    //                 data = data.toObject()
-    //                 cb(err, data.seats);
-    //             });
-    //         },
-
-    //         function (seats, cb) {
-    //             async.waterfall(
-    //                 [
-    //                     function(){
-    //                         for (var seat in seats) {
-    //                             seats[seat].status = true;
-
-    //                             async.waterfall(
-    //                                 [
-    //                                     function (cbn) {
-
-    //                                         Booking.findOne({
-    //                                             seat: seats[seat]._id,
-    //                                             status: false,
-
-    //                                             // $or: [{
-    //                                             //     time: {
-    //                                             //         from: {
-    //                                             //             $gte: req.query.from
-    //                                             //         }
-    //                                             //     }
-    //                                             // }, {
-    //                                             //     time: {
-
-    //                                             //         to: {
-    //                                             //             $lte: req.query.to
-    //                                             //         }
-    //                                             //     }
-    //                                             // }]
-
-    //                                         }).exec(function (err, bookedseat) {
-    //                                             cbn(err, bookedseat);
-    //                                         });
-    //                                     },
-
-    //                                     function (err, bookedseat, cbn) {
-    //                                         if (bookedseat[0]) {
-    //                                             seats[seat].status = false;
-    //                                             cbn(err);
-    //                                         }
-    //                                     }
-    //                                 ]
-    //                             );
-    //                         }
-    //                     }
-
-    //                 ],function(err){
-    //                     cb(err,seats);
-    //                 }
-    //             );
-
-    //         }
-    //     ],
-    //     function (err, result) {
-    //         if (err) {
-    //             throw err;
-    //         }
-    //         res.send(result);
-    //         console.log("data sent");
-    //     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     async.parallel([
         function (cb) {
@@ -231,64 +145,26 @@ exports.searchSeats = function (req, res) {
         res.send(seats);
     });
 
-
-    // Room.findOne({
-    //     name: req.query.room
-    // }).populate("seats").exec(function (err, data) {
-    //     data = data.toObject();
-    //     if (err) {
-    //         res.send(err);
-    //         throw err;
-    //     }
-    //     var seats = data.seats;
-    //     var count = 0;
-    //     for (var seat in data.seats) {
-    //         //seats[seat] = data.seats[seat].toObject();
-    //         seats[seat].status = true;
-    //         Booking.find({
-    //             seat: seats[seat]._id,
-    //             status: false,
-    //             $or: [{
-    //                 time: {
-    //                     from: {
-    //                         $gte: req.query.from
-    //                     }
-    //                 }
-    //             }, {
-    //                 time: {
-
-    //                     to: {
-    //                         $lte: req.query.to
-    //                     }
-    //                 }
-    //             }]
-    //         }).exec(function (err, bookdata) {
-    //             console.log(bookdata);
-    //             if (err) {
-    //                 res.send(err);
-    //                 throw err;
-    //             }
-    //             count++;
-    //             if (bookdata[0]) {
-    //                 seats[seat].status = false;
-    //                 //console.log(seats[seat]);
-    //             }
-    //         });
-
-    //         if (count == data.seats.length) {
-    //             res.send(seats);
-    //         }
-    //     }
-    // });
 };
 
 
 
+exports.delete_booking_get = function (req, res) {
+    Booking.findById(req.query.booking).exec(function (err, booking) {
+        if (err) {
+            throw err;
+        }
 
+        booking.status = true;
 
-
-
-
+        Booking.findByIdAndUpdate(req.query.booking, booking, {}, function (err) {
+            if (err) {
+                throw err;
+            }
+            res.send(true);
+        });
+    });
+};
 
 
 
@@ -315,7 +191,7 @@ exports.createBookingPost = function (req, res) {
 
     var tobook = JSON.parse(req.body.bookingdata);
 
-    console.log(tobook);
+    //console.log(tobook);
     Room.findOne({
         name: tobook.room
     }).exec(function (err, room) {
@@ -323,7 +199,7 @@ exports.createBookingPost = function (req, res) {
         if (err) {
             throw err;
         }
-
+        var doneq = [];
         async.each(tobook.seats, function (seat, cb) {
             var index = tobook.seats.indexOf(seat);
             User.findOne({
@@ -349,54 +225,25 @@ exports.createBookingPost = function (req, res) {
                         res.send(false);
                         throw err;
                     } else {
-                        console.log(data);
-
+                        doneq.push(newbooking);
+                        //console.log(data);
+                        cb(null, true);
                     }
                 });
 
             });
+
+
+
         }, function (err, data) {
-            res.send(true);
+            console.log(doneq);
+            // console.log(data);
+            if (err) {
+                throw err;
+            }
+            // res.JSON(JSON.parse(data));
+            res.send(doneq);
         });
-
-        // for (var i in tobook.seats) {
-        //     console.log(i);
-        //     User.findOne({
-        //         name: tobook.users[i].tag
-        //     }).exec(function (err, user) {
-
-        //         var newbooking = new Booking({
-        //             seat: tobook.seats[i],
-        //             date: new Date(tobook.date),
-        //             time: {
-        //                 from: tobook.from,
-        //                 to: tobook.to
-
-        //             },
-        //             user: user._id,
-        //             room: room._id
-        //         });
-
-        //         count++;
-
-        //         newbooking.save(function (err, data) {
-        //             if (err) {
-        //                 res.send(false);
-        //                 throw err;
-        //             } else {
-        //                 console.log(data);
-
-        //             }
-        //         });
-
-        //     });
-
-        //     if (count == tobook.seats.length) {
-        //         res.send(true);
-        //     }
-
-        // }
-
     });
 
 };

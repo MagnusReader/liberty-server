@@ -6,31 +6,46 @@ var router = express.Router();
 
 // User side pages -----
 
+
 router.get('/', function (req, res) {
-    res.render('selectseat');
+    res.render('index');
 });
 
-router.get('/contact', function (req, res) {
-    res.render('contact',  {
-        status: false
-    });
+router.get('/bookroom.html', function (req, res) {
+    res.render('bookroom');
 });
 
-router.get('/about', function (req, res) {
+router.get('/bookings.html', function (req, res) {
+    res.render('bookings');
+});
+
+router.get('/fines.html', function (req, res) {
+    res.render('fines');
+});
+
+router.get('/profile.html', function (req, res) {
+    res.render('profile');
+});
+
+router.get('/psychometric.html', function (req, res) {
+    res.render('psychometric');
+});
+
+router.get('/contact.html', function (req, res) {
+    res.render('contact');
+});
+
+router.get('/about.html', function (req, res) {
     res.render('about');
 });
 
-router.get('/logout', function (req, res) {
-    res.redirect('/');
+router.get('/login.html', function (req, res) {
+    res.render('login');
 });
 
 // -----
 
 // Admin routes -----
-
-router.get('/login', function (req, res) {
-    res.render('login');
-});
 
 router.post('/login', function (req, res) {
     //- console.log(req.body);
@@ -66,6 +81,7 @@ var user_controller = require('./controllers/userController');
 // POST request for creating user.
 router.post('/user/create', user_controller.user_create_post);
 router.post('/user/login', user_controller.user_login_post);
+router.get('/user/name', user_controller.user_name_get);
 
 
 // DEV Routes -----
@@ -89,29 +105,35 @@ router.get('/selectpeople', function (req, res) {
     res.render('selectpeople');
 });
 
-router.get('/finecheck',function(req,res){
+router.get('/finecheck.html', function (req, res) {
     res.render('finecheck');
 });
 
-router.get('/logout',function(req,res){
-    res.render('logout');
-});
-
-router.get('/cancelseats',function(req,res){
+router.get('/cancelseats', function (req, res) {
     res.render('cancelseats');
 });
 
-router.get('/register',function(req,res){
+router.get('/register', function (req, res) {
     res.render('register');
 });
-router.get('/login',function(req,res){
+router.get('/login', function (req, res) {
     res.render('login');
 });
 
 router.get('/search/user', user_controller.user_search_get);
+router.get('/search/user/bookings', user_controller.booking_search_get);
+router.get('/booking/delete', booker.delete_booking_get);
 
 
+router.get('/genbarcode', function (req, res) {
+    res.render('genbarcode');
+});
 
+router.get('/viewbookings', function (req, res) {
+    res.render('viewbookings');
+});
+
+router.get('/delete/all/bookings', booker.deleteAllBookingsGet);
 
 
 
@@ -147,4 +169,3 @@ router.get('/search/user', user_controller.user_search_get);
 
 //export this router to use in our index.js
 module.exports = router;
-

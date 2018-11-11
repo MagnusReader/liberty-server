@@ -75,7 +75,20 @@ function bookSeats() {
     if (booking.seats.length == booking.users.length) {
         console.log(booking);
 
-        $.post("/book/seats", {bookingdata:JSON.stringify(booking)}, function (data) {
+        $.post("/book/seats", {
+            bookingdata: JSON.stringify(booking)
+        }, function (data) {
+            if (data) {
+                var bookings = [];
+                for (var seat in booking.seats) {
+                    bookings.push({
+                        user: booking.users[seat].tag,
+                        seat: booking.seats[seat]
+                    });
+                }
+                localStorage.setItem("bookings", JSON.stringify(bookings));
+                window.location.href = "/genbarcode";
+            }
             console.log(data);
         });
     } else {

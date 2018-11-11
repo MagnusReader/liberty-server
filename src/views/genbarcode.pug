@@ -1,0 +1,22 @@
+extends layout.pug
+
+block styles
+    //- Custom styles
+    
+
+block content
+    //- Page content
+
+    section
+        .container
+            .row
+                h4.light.col.s12 Please scan these tickets at the time of entry.
+
+            .row#barcodecontainer
+                
+
+              
+block scripts
+    //- custom scripts
+    script(src="/js/lib/JsBarcode.all.min.js")
+    script(src="/js/components/genbarcode.js")

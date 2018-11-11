@@ -1,17 +1,21 @@
 html
     head
         title Nuke
-        include styles.pug
+        include components/styles.pug
         
         block styles
         
     body.index.is-preload
-        include navbar.pug
+        include components/navbar.pug
 
         main    
             block content
         
-        include footer.pug
-        include scripts.pug
+        .fixed-action-btn
+            a.btn-floating.btn-large.red(href="javascript:startlistening()")
+                i.large.material-icons mic
+
+        include components/footer.pug
+        include components/scripts.pug
         
         block scripts

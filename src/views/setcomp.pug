@@ -1,0 +1,27 @@
+extends layout.pug
+
+block styles
+    //- Custom styles
+    link(rel="stylesheet", href="/css/components/seatmap.css")
+
+block content
+    //- Page content
+
+    section
+        .container
+            
+            .row
+                .col.s12
+                    #seatmapcontainer.card.padded-compact.center
+                        form#seatmap.overflow-scroll
+
+            
+            .row
+                .col.s12.m6
+                    a.btn.blue.accent-4.center#bookbtn( href="javascript:bookSeats()", style="width: 100%") Set Computers
+
+                 
+block scripts
+    //- custom scripts
+    script(src="/js/lib/moment.min.js")
+    script(src="/js/components/genmap.js")
