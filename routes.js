@@ -121,6 +121,7 @@ router.get('/login', function (req, res) {
 });
 
 router.get('/search/user', user_controller.user_search_get);
+router.get('/search/user/uname', user_controller.user_search_get_uname);
 router.get('/search/user/bookings', user_controller.booking_search_get);
 router.get('/booking/delete', booker.delete_booking_get);
 
