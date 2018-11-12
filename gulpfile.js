@@ -30,4 +30,4 @@ gulp.task("static", function () {
         .pipe(gulp.dest("build/www/"));
 });
 
-gulp.task("default", ["clean", "html", "static"]);
+// gulp.task("default", ["clean", "html", "static"]);

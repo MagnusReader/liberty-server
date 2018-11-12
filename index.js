@@ -12,8 +12,8 @@ var app = express();
 
 var port = process.env.PORT || 3000;
 
-// var dbport = 'mongodb://127.0.0.1:27017';
-var dbport = 'mongodb://nuke:nukepassword9@ds145113.mlab.com:45113/nuke';
+var dbport = 'mongodb://127.0.0.1:27017';
+// var dbport = 'mongodb://nuke:nukepassword9@ds145113.mlab.com:45113/nuke';
 
 
 var routes = require('./routes.js');
@@ -42,7 +42,7 @@ var bodyParser = require('body-parser');
 
 //To parse URL encoded data
 app.use(bodyParser.urlencoded({
-    extended: false
+    extended: true
 }));
 
 //To parse json data

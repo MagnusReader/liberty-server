@@ -28,8 +28,7 @@
     "scripts": {
         "start": "node index.js",
         "debug": "nodemon index.js",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "prepare": "gulp"
+        "test": "echo \"Error: no test specified\" && exit 1"
     },
     "browserslist": [
         ">0.2%",
