@@ -69,7 +69,7 @@ router.post('/login', function (req, res) {
 
 // Require controller modules.
 var user_controller = require('./controllers/userController');
-
+var feedback_controller = require('./controllers/feedbackController');
 
 
 
@@ -136,6 +136,9 @@ router.get('/viewbookings', function (req, res) {
 
 router.get('/delete/all/bookings', booker.deleteAllBookingsGet);
 
+router.get('/feedback/all', feedback_controller.feedback_get_all);
+router.post('/create/feedback', feedback_controller.feedback_create_post);
+router.put('/update/feedback', feedback_controller.feedback_update_status);
 
 
 

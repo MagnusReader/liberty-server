@@ -8,6 +8,10 @@ var FeedbackSchema = new Schema({
         type: Date,
         default: new Date()
     },
+    type: {
+        type: Schema.ObjectId,
+        ref: "FeedbackType"
+    },
     status: {
         type: Boolean,
         default: false
