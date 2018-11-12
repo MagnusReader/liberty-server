@@ -10,7 +10,7 @@ var app = express();
 
 // ----- Configuration -----
 
-var port = process.env.PORT || 3000;
+var port = process.env.PORT || 3450;
 
 // var dbport = 'mongodb://127.0.0.1:27017';
 var dbport = 'mongodb://nuke:nukepassword9@ds145113.mlab.com:45113/nuke';
@@ -55,8 +55,15 @@ app.set('views', './src/views');
 
 // -----
 
-var cors = require('cors');
-app.use(cors());
+// var cors = require('cors');
+// app.use(cors());
+
+
+app.use(function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    next();
+});
 
 // -----
 
@@ -79,7 +86,7 @@ app.use(function (req, res) {
     // respond with html page
     if (req.accepts('html')) {
         res.render('404', {
-             url: req.url
+            url: req.url
         });
         return;
     }
