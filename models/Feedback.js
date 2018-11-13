@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var FeedbackSchema = new Schema({
-    
+
     date: {
         type: Date,
         default: new Date()
@@ -18,8 +18,7 @@ var FeedbackSchema = new Schema({
     },
 
     user: {
-        type: Schema.ObjectId,
-        ref: 'User'
+        type: String
     },
 
     description: {
