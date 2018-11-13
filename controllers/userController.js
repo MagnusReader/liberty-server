@@ -1,5 +1,6 @@
 var User = require("../models/User");
 var Booking = require("../models/Booking");
+var BookingChart = require("../models/BookingChart");
 
 // Handle User create on POST.
 exports.user_create_post = function (req, res) {
@@ -33,7 +34,7 @@ exports.user_login_post = function (req, res) {
         }
         if (data) {
             if (data.password == req.body.password) {
-                res.send(true);
+                res.send(data);
             } else {
                 res.send("wrongPassword");
             }
@@ -86,7 +87,8 @@ exports.user_search_get = function (req, res) {
 exports.booking_search_get = function (req, res) {
 
     User.findOne({
-        username: req.query.user
+        username: req.query.user,
+        // status: true
     }).exec(function (err, user) {
 
         if (err) {
@@ -98,6 +100,36 @@ exports.booking_search_get = function (req, res) {
             Booking.find({
                 user: user._id
             }).populate("user seat room").exec(function(err,data){
+                if(err){
+                    throw err;
+                }
+                res.send(data);
+            });
+            
+        } else {
+            res.send(false);
+        }
+    });
+};
+
+
+
+exports.booking_chart_search_get = function (req, res) {
+
+    User.findOne({
+        username: req.query.user,
+        // status: true
+    }).exec(function (err, user) {
+
+        if (err) {
+            res.send(false);
+            throw err;
+        }
+
+        if (user) {
+            BookingChart.find({
+                user: user._id
+            }).populate("user").exec(function(err,data){
                 if(err){
                     throw err;
                 }

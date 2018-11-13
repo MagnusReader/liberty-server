@@ -3,7 +3,7 @@
 function createChecks(box) {
     for (var y = 0; y < box.y; y++) {
         for (var x = 0; x < box.x; x++) {
-            $("#genmap").append("<label><input type='checkbox' class='filled-in'  name='seats' value='{" + "'x':" + (x + 1) + "," + "'y':" + (y + 1) + "}'><span></span></label>");
+            $("#genmap").append("<label><input type='checkbox' class='filled-in'  name='seats' value='{" + '"x":' + (x + 1) + "," + '"y":' + (y + 1) + "}'><span></span></label>");
         }
         $("#genmap").append("<br />");
     }

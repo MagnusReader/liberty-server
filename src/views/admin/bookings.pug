@@ -1,0 +1,32 @@
+extends ./layout.pug
+
+block styles
+    //- Custom styles
+    link(rel="stylesheet" href="/css/nuke.css")
+
+
+block content
+    //- Page content
+    .container-fluid
+        .row
+            .s12 
+                h3.header Bookings
+        .row
+            .col.s12
+                ul.collection
+                    each booking in bookings
+                        li.collection-item.avatar
+                            
+                            span.title #{booking.user.name}
+                            p #{booking.seat}
+                            p #{booking.dateFormatted} : #{booking.fromForm} - #{booking.toForm}
+                            a.secondary-content.red-text(href="javascript:cancelbookingnew(" + JSON.stringify(booking._id) + ")")
+                                i.material-icons close
+                        
+
+                                    
+                            
+
+block scripts
+    //- custom scripts
+    script(src="/js/components/viewbookings.js")

@@ -7,6 +7,7 @@ var User = require("../models/User");
 var Room = require("../models/Room");
 var Seat = require("../models/Seat");
 var Booking = require("../models/Booking");
+var BookingChart = require("../models/BookingChart");
 
 exports.createSeatsGet = function (req, res) {
 
@@ -15,7 +16,7 @@ exports.createSeatsGet = function (req, res) {
     });
 
     var seats = req.query.seats;
-
+    console.log(req.query.seats);
     for (var seat in seats) {
         var newseat = new Seat({
             position: {
@@ -71,6 +72,20 @@ exports.deleteAllBookingsGet = function (req, res) {
         res.send(true);
     });
 };
+
+
+
+exports.deleteAllBookingsChartGet = function (req, res) {
+    BookingChart.remove({}, function (err) {
+        if (err) {
+            throw err;
+        }
+        // Success - go to author list
+        res.send(true);
+    });
+};
+
+
 
 exports.searchSeats = function (req, res) {
 
@@ -149,6 +164,57 @@ exports.searchSeats = function (req, res) {
 
 
 
+
+
+exports.printer = function (req, res) {
+    if (req.query) {
+        console.log(req.query);
+    }
+
+    if (req.body) {
+        console.log(req.body);
+    }
+
+};
+
+
+
+exports.searchSeatsChart = function (req, res) {
+
+
+    BookingChart.find({
+        status: false,
+        date: new Date(req.query.date)
+        // room: req.query.room,
+    }).exec(function (err, bookdata) {
+
+        // console.log(bookdata);
+        // var bookings;
+        var rangesearched = moment.range(new Date(parseInt(req.query.from)), new Date(parseInt(req.query.to)));
+
+        if (bookdata) {
+            var bookings = bookdata.map(booking => {
+                return booking.toObject();
+            });
+
+
+            bookings.forEach(booking => {
+                var rangebooked = moment.range(new Date(booking.time.from), new Date(booking.time.to));
+
+                booking.status = rangesearched.overlaps(rangebooked) ? false : true;
+            });
+            res.send(bookings);
+        }
+
+
+    });
+
+
+};
+
+
+
+
 exports.delete_booking_get = function (req, res) {
     Booking.findById(req.query.booking).exec(function (err, booking) {
         if (err) {
@@ -158,6 +224,24 @@ exports.delete_booking_get = function (req, res) {
         booking.status = true;
 
         Booking.findByIdAndUpdate(req.query.booking, booking, {}, function (err) {
+            if (err) {
+                throw err;
+            }
+            res.send(true);
+        });
+    });
+};
+
+
+exports.delete_booking_chart_get = function (req, res) {
+    BookingChart.findById(req.query.booking).exec(function (err, booking) {
+        if (err) {
+            throw err;
+        }
+
+        booking.status = true;
+
+        BookingChart.findByIdAndUpdate(req.query.booking, booking, {}, function (err) {
             if (err) {
                 throw err;
             }
@@ -246,4 +330,45 @@ exports.createBookingPost = function (req, res) {
         });
     });
 
+};
+
+
+
+
+exports.createBookingChartPost = function (req, res) {
+
+    var tobook = JSON.parse(req.body.bookingdata);
+
+    console.log(tobook);
+
+    // var doneq = [];
+    // async.each(tobook.seats, function (seat, cb) {
+    //     var index = tobook.seats.indexOf(seat);
+    User.findOne({
+        username: tobook.user
+    }).exec(function (err, user) {
+        if (err) {
+            throw err;
+        }
+        var newbooking = new BookingChart({
+            seat: tobook.seat,
+            date: new Date(tobook.date),
+            time: {
+                from: tobook.from,
+                to: tobook.to
+            },
+            user: user._id,
+
+        });
+
+        newbooking.save(function (err, data) {
+            if (err) {
+                res.send(false);
+                throw err;
+            } else {
+                res.send(newbooking);
+            }
+        });
+
+    });
 };

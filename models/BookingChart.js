@@ -1,11 +1,11 @@
 var mongoose = require("mongoose");
-
+var moment = require('moment');
 var Schema = mongoose.Schema;
 
-var BookingSchema = new Schema({
+var BookingChartSchema = new Schema({
     seat: {
-        type: Schema.ObjectId,
-        ref: "Seat"
+        type: "String",
+        max: 50
     },
 
     date: {
@@ -22,15 +22,14 @@ var BookingSchema = new Schema({
         }
 
     },
-    
+
     status: {
         type: Boolean,
         default: false,
         required: true
     },
 
-    logged: {
-        in: {
+    logged: { in: {
             state: {
                 type: Boolean,
                 default: false,
@@ -59,12 +58,21 @@ var BookingSchema = new Schema({
         ref: "User"
     },
 
-    room: {
-        type: Schema.ObjectId,
-        ref: "Room"
-    }
+});
+
+BookingChartSchema.virtual('dateFormatted').get(function () {
+    return moment(this.due_back).format('MMMM Do, YYYY');
+});
+
+BookingChartSchema.virtual('fromForm').get(function () {
+    return moment(this.time.from).format('HH:mm');
+});
+
+BookingChartSchema.virtual('toForm').get(function () {
+    return moment(this.time.to).format('HH:mm');
 });
 
 
+
 //Export model
-module.exports = mongoose.model("Booking", BookingSchema);
+module.exports = mongoose.model("BookingChart", BookingChartSchema);

@@ -1,0 +1,61 @@
+// upar wala nav bar
+// <div class="navbar-fixed">
+nav
+    .nav-wrapper
+        ul
+            // <li><a href="#!"><i class="material-icons">menu</i></a></li>
+            li
+                a.title(href="admindashboard.html") Dashboard
+        ul.right
+            li
+                a(href="#!")
+                    i.material-icons account_circle
+            //- li
+            //-     a(href="#!")
+            //-         i.material-icons settings
+            //- li
+            //-     a(href="#!")
+            //-         i.material-icons help
+// upar wala navbar end here
+// sidenav start here
+ul.sidenav.sidenav-fixed.z-depth-0
+    li
+        a(href="/admin")
+            i.material-icons dashboard
+            | Dashboard
+    li
+        a(href="/admin/statistics")
+            i.material-icons show_chart
+            | Statistics
+    li
+        a(href="/admin/feedback")
+            i.material-icons feedback
+            | Feedback
+    li
+        a(href="/admin/layout")
+            i.material-icons file_upload
+            | Seat Layout
+    li
+        a(href="/admin/bookings")
+            i.material-icons accessible
+            | Bookings
+    li
+        a(href="/admin/fines")
+            i.material-icons attach_money
+            | Fines
+    li
+        a(href="/admin/attendance")
+            i.material-icons assignment
+            | Attendance
+    
+    li
+        .divider
+    li
+        a(href="#")
+            i.material-icons exit_to_app
+            | Log Out
+    li
+        a(href="#")
+            i.material-icons help
+            | Help & Feedback
+// sidenav end here

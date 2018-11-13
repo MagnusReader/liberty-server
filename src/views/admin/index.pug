@@ -1,0 +1,78 @@
+extends ./layout.pug
+
+block styles
+    //- Custom styles
+    link(rel="stylesheet" href="/css/nuke.css")
+
+
+block content
+    //- Page content
+    .container-fluid
+        .row
+            .col.s12.m4
+                .card.blue.white-text.z-depth-1.hoverable.curved
+                    .card-content.valign-wrapper
+                        .card-text
+                            h6 #{booked}
+                            p Seats booked
+                        .card-icon
+                            i.material-icons.medium.valign check_circle
+                    .card-action
+                        a(href="/admin/bookings") View bookings
+            
+            .col.s12.m4
+                .card.blue.white-text.hoverable.curved
+                    .card-content.valign-wrapper
+                        .card-text
+                            h6 Statistics
+                            
+                        .card-icon
+                            i.material-icons.medium.valign pie_chart
+                    .card-action
+                        a(href="/admin/statistics") View charts
+            
+            .col.s12.m4
+                .card.blue.white-text.hoverable.curved
+                    .card-content.valign-wrapper
+                        .card-text
+                            h6 50
+                            p Feedbacks 
+                        .card-icon
+                            i.material-icons.medium.valign feedback
+                    .card-action
+                        a(href="/admin/feedback") Show feedback
+            
+            .col.s12.m4
+                .card.blue.white-text.hoverable.curved
+                    .card-content.valign-wrapper
+                        .card-text
+                            h6 Seat layout 
+                        .card-icon
+                            i.material-icons.medium.valign file_upload
+                    .card-action
+                        a(href="/admin/layout") Upoad layout
+            
+            .col.s12.m4
+                .card.blue.white-text.hoverable.curved
+                    .card-content.valign-wrapper
+                        .card-text
+                            h6 #{booked}
+                            p Are present
+                        .card-icon
+                            i.material-icons.medium.valign update
+                    .card-action
+                        a(href="/admin/attendance") Mark Present
+            
+            .col.s12.m4
+                .card.blue.white-text.hoverable.curved
+                    .card-content.valign-wrapper
+                        .card-text
+                            h6 0
+                            p Fines 
+                        .card-icon
+                            i.material-icons.medium.valign attach_money
+                    .card-action
+                        a(href="/admin/fines") Open Fines
+
+block scripts
+    //- custom scripts

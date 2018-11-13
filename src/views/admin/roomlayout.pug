@@ -1,0 +1,25 @@
+extends ./layout.pug
+
+block styles
+    //- Custom styles
+    link(rel="stylesheet" href="/css/nuke.css")
+
+
+block content
+    //- Page content
+    .container-fluid
+        .row
+            .col.s12.m6
+                
+                .card
+                    .card-image
+                        img(src="/images/seat.svg")
+                    .card-content
+                        span.card-title Current Layout
+                    .card-action
+                        a.btn-flat.green.rounded(href="#") upload
+                        a.btn-flat.red.rounded(href="#") delete
+
+
+block scripts
+    //- custom scripts
