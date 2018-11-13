@@ -127,6 +127,7 @@ router.get('/delete/all/bookings', booker.deleteAllBookingsGet);
 router.get('/feedback/all', feedback_controller.feedback_get_all);
 router.post('/create/feedback', feedback_controller.feedback_create_post);
 router.put('/update/feedback', feedback_controller.feedback_update_status);
+router.get('/feedbacktype', feedback_controller.feedbacktype_get_all);
 
 // router.get('/finecheck.html', function (req, res) {
 //     res.render('finecheck');
