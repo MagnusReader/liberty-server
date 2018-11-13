@@ -71,8 +71,7 @@ router.post('/login', function (req, res) {
 // var async = require('async')
 
 // Require controller modules.
-
-
+var feedback_controller = require('./controllers/feedbackController');
 
 
 /// user ROUTES ///
@@ -110,6 +109,8 @@ router.get('/delete/all/bookings/new', booker.deleteAllBookingsChartGet);
 
 router.get('/create/room', booker.createRoomGet);
 router.get('/create/seats', booker.createSeatsGet);
+router.get('/search/user', user_controller.user_search_get);
+router.get('/search/user/uname', user_controller.user_search_get_uname);
 router.get('/search/user/bookings', user_controller.booking_search_get);
 router.get('/search/seats', booker.searchSeats);
 router.post('/book/seats', booker.createBookingPost);
@@ -123,6 +124,9 @@ router.get('/delete/all/bookings', booker.deleteAllBookingsGet);
 // router.get('/selectpeople', function (req, res) {
 //     res.render('selectpeople');
 // });
+router.get('/feedback/all', feedback_controller.feedback_get_all);
+router.post('/create/feedback', feedback_controller.feedback_create_post);
+router.put('/update/feedback', feedback_controller.feedback_update_status);
 
 // router.get('/finecheck.html', function (req, res) {
 //     res.render('finecheck');

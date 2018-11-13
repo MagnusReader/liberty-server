@@ -19,6 +19,21 @@ var UserSchema = new Schema({
         //raequired: true,
         max: 20,
         default: "2018ACSC0123456"
+    },
+    registration_number: {
+        type: String,
+    },
+    email: {
+        type: String
+    },
+    phone: {
+        type: String
+    },
+    dob: {
+        type: String
+    },
+    course: {
+        type: String
     }
     // status: {
     //     type: Boolean,
