@@ -1,0 +1,60 @@
+extends layout.pug
+
+block styles
+    //- Custom styles
+    link(rel="stylesheet", href="/css/nuke.css")
+
+block content
+    //- Page content
+
+    section
+        .container
+            .row
+                h4.light.center.blue-text.text-lighten-1 Feedback
+            
+
+            .row
+                .col.s12
+                        
+                    ul.collapsible
+                        li.active
+                            .collapsible-header
+                                i.material-icons filter_drama
+                                | review
+                            .collapsible-body
+                                span I am a feedback
+                        li
+                            .collapsible-header
+                                i.material-icons place
+                                | Suggestion
+                            .collapsible-body
+                                span trial feedback
+                        li
+                            .collapsible-header
+                                i.material-icons whatshot
+                                | Complaint
+                            .collapsible-body
+                                span trial feedback
+                        li
+                            .collapsible-header
+                                i.material-icons filter_drama
+                                | review
+                            .collapsible-body
+                                span trial feedback
+                        li
+                            .collapsible-header
+                                i.material-icons place
+                                | Complaint
+                            .collapsible-body
+                                span trial feedback
+                        li
+                            .collapsible-header
+                                i.material-icons whatshot
+                                | Suggestion
+                            .collapsible-body
+                                span trial feedback
+
+                        
+block scripts
+    //- custom scripts
+
