@@ -371,7 +371,7 @@ exports.createBookingChartPost = function (req, res) {
 
                 // Mobile No can be a single number, list or csv string
 
-                var mobileNo = "01881190312";
+                var mobileNo = ["+917767060939","+919890350432","+918329503485"];
                 var message = "Booking for " + newbooking.seat + " registered. Your booking id is " + newbooking._id + ".";
                 msg91.send(mobileNo,message, function (err, response) {
                     console.log(err);
