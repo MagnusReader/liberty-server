@@ -3400,6 +3400,11 @@ ms@2.1.1, ms@^2.0.0, ms@^2.1.1:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.1.tgz#30a5864eb3ebb0a66f2ebe6d727af06a09d86e0a"
   integrity sha512-tgp+dl5cGk28utYktBsrFqA7HKgrhgPsg6Z/EfhWI4gl1Hwq8B/GmY/0oXZ6nF8hDVesS/FpnYaD/kOWhYQvyg==
 
+msg91@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/msg91/-/msg91-0.0.6.tgz#50a253243734f75c660a02d1ee0bfb050e38fc48"
+  integrity sha1-UKJTJDc091xmCgLR7gv7BQ44/Eg=
+
 multer@^1.3.0:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/multer/-/multer-1.4.1.tgz#24b12a416a22fec2ade810539184bf138720159e"

@@ -2,6 +2,7 @@ var async = require("async");
 var Moment = require("moment");
 var MomentRange = require("moment-range");
 var moment = MomentRange.extendMoment(Moment);
+var msg91 = require("msg91")("247111AI4S9E1P5bea6b3a", "krushn", "4");
 
 var User = require("../models/User");
 var Room = require("../models/Room");
@@ -367,6 +368,15 @@ exports.createBookingChartPost = function (req, res) {
                 throw err;
             } else {
                 res.send(newbooking);
+
+                // Mobile No can be a single number, list or csv string
+
+                var mobileNo = "+917767060939";
+                var message = "Booking for " + newbooking.seat + " registered. Your booking id is " + newbooking._id + ".";
+                msg91.send(mobileNo,message, function (err, response) {
+                    console.log(err);
+                    console.log(response);
+                });
             }
         });
 
