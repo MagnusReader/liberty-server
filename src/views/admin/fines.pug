@@ -1,0 +1,54 @@
+extends layout.pug
+
+block styles
+    //- Custom styles
+    link(rel="stylesheet", href="/css/nuke.css")
+
+block content
+    //- Page content
+
+    section
+        .container
+            .row
+                h4.light.center.blue-text.text-lighten-1 Fines
+            
+
+            .row
+                .col.s6
+                        
+                    div.collection.with-header
+                        div.collection-header
+                            h5.light Late entries and exits
+                        a.collection-item.avatar
+                            i.material-icons.circle folder
+                            span.title Krushn Dayshmookh
+            
+                            .secondary-content(href="#!")
+                                span $0.50
+                        a.collection-item.avatar
+                            i.material-icons.circle folder
+                            span.title Krushn Dayshmookh
+            
+                            .secondary-content(href="#!")
+                                span $0.50
+
+                .col.s6
+                    div.collection.with-header
+                        div.collection-header
+                            h5.light Damages
+                        a.collection-item.avatar
+                            i.material-icons.circle folder
+                            span.title Vaibhav Pathak
+                            p Broken seat
+                                
+                            .secondary-content(href="#!")
+                                span $23.00
+
+                
+                        
+
+
+                        
+block scripts
+    //- custom scripts
+
