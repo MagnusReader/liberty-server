@@ -1,0 +1,29 @@
+extends layout.pug
+
+block styles
+    //- Custom styles
+    link(rel="stylesheet", href="/css/nuke.css")
+
+block content
+    //- Page content
+
+    section
+        .container
+            .row
+                h3.center.header.light Stats
+        .row.padded-compact
+            .col.s12.m6
+                canvas#doughnut.full-width(style="height:50vh")
+            .col.s12.m6
+                canvas#seatbar.full-width(style="height:50vh")
+        .row.padded-compact
+            .col.s12
+                canvas#monthsbar.full-width(style="height:40vh")
+                
+                
+                 
+block scripts
+    //- custom scripts
+    script(src="/js/lib/moment.min.js")
+    script(src="/js/lib/Chart.js")
+    script(src="/js/components/statistics.js")
